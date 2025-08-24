@@ -52,12 +52,15 @@ def parse_pipeline(pipeline: PipelineRequest):
             
             # Check if the graph is acyclic (DAG)
             try:
-                # If topological sort succeeds, it's a DAG
-                list(nx.topological_sort(G))
-                is_dag = True
-            except nx.NetworkXError:
-                # If topological sort fails, there's a cycle
-                is_dag = False
+                # Use is_directed_acyclic_graph to check for cycles
+                is_dag = nx.is_directed_acyclic_graph(G)
+            except Exception:
+                # Fallback: try topological sort
+                try:
+                    list(nx.topological_sort(G))
+                    is_dag = True
+                except Exception:
+                    is_dag = False
         
         return {
             'num_nodes': num_nodes,

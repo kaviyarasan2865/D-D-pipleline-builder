@@ -14,6 +14,8 @@ export const SubmitButton = () => {
 
     const handleSubmit = async () => {
         try {
+            console.log('Submitting pipeline with:', { nodes, edges });
+            
             const response = await fetch('http://localhost:8000/pipelines/parse', {
                 method: 'POST',
                 headers: {
@@ -25,11 +27,17 @@ export const SubmitButton = () => {
                 })
             });
 
+            console.log('Response status:', response.status);
+            console.log('Response headers:', response.headers);
+
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                const errorText = await response.text();
+                console.error('Server error response:', errorText);
+                throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
             }
 
             const data = await response.json();
+            console.log('Response data:', data);
             
             // Create user-friendly alert
             const message = `
@@ -39,10 +47,26 @@ Pipeline Analysis Results:
 • Is DAG: ${data.is_dag ? 'Yes' : 'No'}
             `.trim();
 
-            toast.success(message);
+            if (data.is_dag) {
+                toast.success(message);
+            } else {
+                toast.error(`Pipeline is not a DAG (contains cycles). ${message}`);
+            }
         } catch (error) {
             console.error('Error submitting pipeline:', error);
-            toast.error('Error submitting pipeline. Please check the console for details.');
+            
+            // Provide more specific error messages
+            let errorMessage = 'Error submitting pipeline. ';
+            
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                errorMessage += 'Cannot connect to backend server. Please ensure the backend is running on http://localhost:8000';
+            } else if (error.message.includes('HTTP error!')) {
+                errorMessage += `Server error: ${error.message}`;
+            } else {
+                errorMessage += `Unexpected error: ${error.message}`;
+            }
+            
+            toast.error(errorMessage);
         }
     };
 
