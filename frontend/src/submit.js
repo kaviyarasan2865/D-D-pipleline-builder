@@ -71,32 +71,11 @@ Pipeline Analysis Results:
     };
 
     return (
-        <div style={{
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            padding: '20px',
-            backgroundColor: '#ffffff',
-            borderTop: '1px solid #e2e8f0'
-        }}>
+        <div className="flex items-center justify-center p-5 bg-white border-t border-slate-200">
             <button 
                 type="submit" 
                 onClick={handleSubmit}
-                style={{
-                    padding: '12px 24px',
-                    backgroundColor: '#3b82f6',
-                    color: '#ffffff',
-                    border: 'none',
-                    borderRadius: '8px',
-                    fontSize: '16px',
-                    fontWeight: '500',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.2s ease',
-                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-                    ':hover': {
-                        backgroundColor: '#2563eb'
-                    }
-                }}
+                className="px-6 py-3 bg-blue-500 text-white border-none rounded-lg text-base font-medium cursor-pointer transition-colors duration-200 shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
                 Submit Pipeline
             </button>

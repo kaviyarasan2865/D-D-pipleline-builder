@@ -5,26 +5,11 @@ import { DraggableNode } from './draggableNode';
 export const PipelineToolbar = () => {
 
     return (
-        <div style={{ 
-          padding: '20px', 
-          backgroundColor: '#ffffff',
-          borderBottom: '1px solid #e2e8f0',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
-        }}>
-            <h2 style={{ 
-              margin: '0 0 20px 0', 
-              color: '#1f2937', 
-              fontSize: '20px',
-              fontWeight: '600'
-            }}>
+        <div className="p-5 bg-white border-b border-slate-200 shadow-sm">
+            <h2 className="m-0 mb-5 text-gray-800 text-xl font-semibold">
               VectorShift Pipeline Builder
             </h2>
-            <div style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap', 
-              gap: '10px',
-              justifyContent: 'center'
-            }}>
+            <div className="flex flex-wrap gap-2.5 justify-center">
                 <DraggableNode type='customInput' label='Input' color='#3b82f6' />
                 <DraggableNode type='llm' label='LLM' color='#8b5cf6' />
                 <DraggableNode type='customOutput' label='Output' color='#10b981' />

@@ -10,36 +10,13 @@ export const DraggableNode = ({ type, label, color = '#1C2536' }) => {
   
     return (
       <div
-        className={type}
+        className={`${type} cursor-grab min-w-[100px] h-[60px] flex items-center rounded-lg justify-center flex-col border-2 border-transparent transition-all duration-200 shadow-md hover:-translate-y-0.5 hover:shadow-lg hover:border-white`}
+        style={{ backgroundColor: color }}
         onDragStart={(event) => onDragStart(event, type)}
         onDragEnd={(event) => (event.target.style.cursor = 'grab')}
-        style={{ 
-          cursor: 'grab', 
-          minWidth: '100px', 
-          height: '60px',
-          display: 'flex', 
-          alignItems: 'center', 
-          borderRadius: '8px',
-          backgroundColor: color,
-          justifyContent: 'center', 
-          flexDirection: 'column',
-          border: '2px solid transparent',
-          transition: 'all 0.2s ease',
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-          ':hover': {
-            transform: 'translateY(-2px)',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
-            borderColor: '#ffffff'
-          }
-        }} 
         draggable
       >
-          <span style={{ 
-            color: '#fff', 
-            fontSize: '12px',
-            fontWeight: '500',
-            textAlign: 'center'
-          }}>
+          <span className="text-white text-xs font-medium text-center">
             {label}
           </span>
       </div>

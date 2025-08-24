@@ -14,7 +14,7 @@ export const LLMNode = ({ id, data }) => {
       outputHandles={[{ name: 'response', color: '#10b981' }]}
       className="llm-node"
     >
-      <div style={{ textAlign: 'center', color: '#6b7280', fontSize: '11px' }}>
+      <div className="text-center text-gray-500 text-xs">
         This is a LLM.
       </div>
     </BaseNode>

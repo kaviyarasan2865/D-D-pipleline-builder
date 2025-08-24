@@ -15,17 +15,7 @@ export const BaseNode = ({
 }) => {
   return (
     <div 
-      className={`base-node ${className}`}
-      style={{
-        width: width,
-        height: height,
-        border: '2px solid #e2e8f0',
-        borderRadius: '8px',
-        backgroundColor: '#ffffff',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-        padding: '12px',
-        position: 'relative'
-      }}
+      className={`base-node ${className} w-[${width}px] h-[${height}px] border-2 border-slate-200 rounded-lg bg-white shadow-md p-3 relative`}
     >
       {/* Input Handles */}
       {inputHandles.map((handle, index) => (
@@ -42,18 +32,12 @@ export const BaseNode = ({
       ))}
 
       {/* Title */}
-      <div style={{
-        fontSize: '14px',
-        fontWeight: '600',
-        color: '#1f2937',
-        marginBottom: '8px',
-        textAlign: 'center'
-      }}>
+      <div className="text-sm font-semibold text-gray-800 mb-2 text-center">
         {title}
       </div>
 
       {/* Content */}
-      <div style={{ fontSize: '12px' }}>
+      <div className="text-xs">
         {children}
       </div>
 

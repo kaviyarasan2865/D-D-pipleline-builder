@@ -51,26 +51,18 @@ export const TextNode = ({ id, data }) => {
       height={height}
       className="text-node"
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-        <label style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ fontSize: '11px', color: '#6b7280' }}>Text:</span>
+      <div className="flex flex-col gap-1.5">
+        <label className="flex flex-col gap-0.5">
+          <span className="text-xs text-gray-500">Text:</span>
           <textarea 
             value={currText} 
             onChange={handleTextChange}
-            style={{
-              padding: '4px 6px',
-              border: '1px solid #d1d5db',
-              borderRadius: '4px',
-              fontSize: '11px',
-              resize: 'none',
-              minHeight: '40px',
-              fontFamily: 'monospace'
-            }}
+            className="px-1.5 py-1 border border-gray-300 rounded text-xs resize-none min-h-[40px] font-mono focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter text with {{variables}}"
           />
         </label>
         {variables.length > 0 && (
-          <div style={{ fontSize: '10px', color: '#6b7280' }}>
+          <div className="text-[10px] text-gray-500">
             Variables: {variables.join(', ')}
           </div>
         )}

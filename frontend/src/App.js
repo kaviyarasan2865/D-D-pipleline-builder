@@ -5,11 +5,7 @@ import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#f8fafc',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
-    }}>
+    <div className="min-h-screen bg-slate-50 font-sans">
        <Toaster position="top-right" />
       <PipelineToolbar />
       <PipelineUI />

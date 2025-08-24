@@ -23,18 +23,13 @@ export const TransformNode = ({ id, data }) => {
       outputHandles={[{ name: 'transformed', color: '#10b981' }]}
       className="transform-node"
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-        <label style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ fontSize: '11px', color: '#6b7280' }}>Operation:</span>
+      <div className="flex flex-col gap-1.5">
+        <label className="flex flex-col gap-0.5">
+          <span className="text-xs text-gray-500">Operation:</span>
           <select 
             value={operation} 
             onChange={handleOperationChange}
-            style={{
-              padding: '4px 6px',
-              border: '1px solid #d1d5db',
-              borderRadius: '4px',
-              fontSize: '11px'
-            }}
+            className="px-1.5 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="uppercase">Uppercase</option>
             <option value="lowercase">Lowercase</option>
@@ -43,19 +38,14 @@ export const TransformNode = ({ id, data }) => {
             <option value="trim">Trim</option>
           </select>
         </label>
-        <label style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ fontSize: '11px', color: '#6b7280' }}>Field:</span>
+        <label className="flex flex-col gap-0.5">
+          <span className="text-xs text-gray-500">Field:</span>
           <input 
             type="text" 
             value={field} 
             onChange={handleFieldChange}
             placeholder="Field name (optional)"
-            style={{
-              padding: '4px 6px',
-              border: '1px solid #d1d5db',
-              borderRadius: '4px',
-              fontSize: '11px'
-            }}
+            className="px-1.5 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           />
         </label>
       </div>

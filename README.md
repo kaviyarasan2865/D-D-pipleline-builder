@@ -3,7 +3,7 @@ This project implements a drag-and-drop pipeline builder with node abstraction, 
 
 ## Features Implemented
 
-### Part 1: Node Abstraction ✅
+### Part 1: Node Abstraction 
 - Created a `BaseNode` component that provides common functionality for all nodes
 - Refactored existing nodes (Input, Output, LLM, Text) to use the base abstraction
 - Created 5 new nodes to demonstrate the abstraction:
@@ -13,20 +13,20 @@ This project implements a drag-and-drop pipeline builder with node abstraction, 
   - **Split Node**: Splits data into multiple outputs
   - **Condition Node**: Routes data based on conditions
 
-### Part 2: Styling ✅
+### Part 2: Styling 
 - Modern, unified design with consistent color scheme
 - Improved typography and spacing
 - Enhanced visual feedback for interactions
 - Professional-looking UI components
 - Custom scrollbars and hover effects
 
-### Part 3: Text Node Logic ✅
+### Part 3: Text Node Logic 
 - Dynamic sizing based on text content length
 - Variable detection using `{{variableName}}` syntax
 - Automatic handle creation for detected variables
 - Real-time updates as user types
 
-### Part 4: Backend Integration ✅
+### Part 4: Backend Integration 
 - Frontend sends pipeline data to backend endpoint
 - Backend calculates node count, edge count, and DAG validation
 - User-friendly alert displays results

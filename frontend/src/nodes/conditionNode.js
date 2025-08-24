@@ -26,18 +26,13 @@ export const ConditionNode = ({ id, data }) => {
       ]}
       className="condition-node"
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-        <label style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <span style={{ fontSize: '11px', color: '#6b7280' }}>Condition:</span>
+      <div className="flex flex-col gap-1.5">
+        <label className="flex flex-col gap-0.5">
+          <span className="text-xs text-gray-500">Condition:</span>
           <select 
             value={condition} 
             onChange={handleConditionChange}
-            style={{
-              padding: '4px 6px',
-              border: '1px solid #d1d5db',
-              borderRadius: '4px',
-              fontSize: '11px'
-            }}
+            className="px-1.5 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="if_true">If True</option>
             <option value="if_false">If False</option>
@@ -46,18 +41,13 @@ export const ConditionNode = ({ id, data }) => {
           </select>
         </label>
         {(condition === 'if_length' || condition === 'if_true') && (
-          <label style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-            <span style={{ fontSize: '11px', color: '#6b7280' }}>Threshold:</span>
+          <label className="flex flex-col gap-0.5">
+            <span className="text-xs text-gray-500">Threshold:</span>
             <input 
               type="number" 
               value={threshold} 
               onChange={handleThresholdChange}
-              style={{
-                padding: '4px 6px',
-                border: '1px solid #d1d5db',
-                borderRadius: '4px',
-                fontSize: '11px'
-              }}
+              className="px-1.5 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
             />
           </label>
         )}
