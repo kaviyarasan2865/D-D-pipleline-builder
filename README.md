@@ -1,5 +1,4 @@
-# VectorShift Frontend Technical Assessment
-
+# D&D Pipeline builder
 This project implements a drag-and-drop pipeline builder with node abstraction, enhanced styling, dynamic text nodes, and backend integration.
 
 ## Features Implemented
